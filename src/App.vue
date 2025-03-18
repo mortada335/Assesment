@@ -56,6 +56,31 @@ const closeMenu = () => {
 
       <!-- Right Section -->
       <div class="flex items-center space-x-4">
+        <!-- Theme Switcher -->
+        <div class="hidden md:flex">
+          <DropdownMenu>
+            <DropdownMenuTrigger as-child>
+              <Button variant="ghost" class="relative">
+                <Icon
+                  icon="radix-icons:moon"
+                  class="h-5 w-5 transition-transform dark:-rotate-90 dark:scale-0"
+                />
+                <Icon
+                  icon="radix-icons:sun"
+                  class="absolute h-5 w-5 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100"
+                />
+                <span class="sr-only">Toggle theme</span>
+              </Button>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end">
+              <DropdownMenuItem @click="colorMode = 'light'"> Light </DropdownMenuItem>
+              <DropdownMenuItem @click="colorMode = 'dark'"> Dark </DropdownMenuItem>
+              <DropdownMenuItem @click="colorMode = 'auto'"> System </DropdownMenuItem>
+            </DropdownMenuContent>
+          </DropdownMenu>
+        </div>
+
+        <!-- User Badge (Hidden on Mobile) -->
         <div
           class="hidden md:flex items-center bg-slate-300 rounded-lg px-3 py-1 dark:text-white dark:bg-blue-600"
         >
