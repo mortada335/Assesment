@@ -1,8 +1,8 @@
 <template>
-  <div class="flex flex-col items-center justify-center gap-4 p-6">
-    <h1 class="text-3xl font-bold text-center">Grab ten random jokes!</h1>
+  <div class="flex flex-col items-center space-y-5 p-6">
+    <h1 class="text-4xl font-bold text-center">Grab ten random jokes!</h1>
 
-    <div class="flex gap-5">
+    <div class="flex gap-3">
       <Select v-model="selectedCategory">
         <SelectTrigger class="dark:bg-blue-700 w-60">
           <SelectValue placeholder="Select a category" />
@@ -15,11 +15,11 @@
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Button class="dark:bg-blue-700 rounded px-2" @click="fetchJokes">GRAB</Button>
+      <Button class="dark:bg-blue-700 rounded px-4 py-1" @click="fetchJokes">Grab</Button>
     </div>
 
     <!-- Jokes List -->
-    <div v-if="jokes.length > 0" class="w-full max-w-lg space-y-4">
+    <div v-if="jokes.length > 0" class="max-w-xs md:max-w-lg space-y-3">
       <div
         v-for="(joke, index) in jokes"
         :key="joke.id"
@@ -57,7 +57,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { ref } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const visiblePunchline = ref<number | null>(null)
 const togglePunchline = (index: number | null) => {
@@ -98,6 +98,8 @@ const fetchJokes = async () => {
     console.error('Error fetching jokes:', error)
   }
 }
+
+onMounted(() => fetchJokes())
 </script>
 
 <style scoped></style>

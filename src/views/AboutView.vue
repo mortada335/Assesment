@@ -1,5 +1,5 @@
 <template>
-  <div class="border rounded-lg mx-auto max-w-4xl p-2 mt-5">
+  <div class="border rounded-lg mx-auto md:max-w-2xl p-2 mt-5 max-w-sm">
     <h1>
       The idea of the application is simple, there are 2 pages (Home, Jokes).
       <br />
